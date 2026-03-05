@@ -1,4 +1,4 @@
-﻿# Laravel Spatie Permission Manager
+# Laravel Spatie Permission Manager
 
 Elegant admin UI for managing roles, permissions, and assignments on top of `spatie/laravel-permission` - no Node build required.
 
