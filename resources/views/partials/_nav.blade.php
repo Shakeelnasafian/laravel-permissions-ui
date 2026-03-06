@@ -1,4 +1,4 @@
-﻿@php
+@php
     $navItems = [
         [
             'label' => 'Dashboard',
