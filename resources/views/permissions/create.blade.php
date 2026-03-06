@@ -1,4 +1,4 @@
-﻿@extends('permission-manager::layouts.app')
+@extends('permission-manager::layouts.app')
 
 @section('title', 'Create Permission')
 

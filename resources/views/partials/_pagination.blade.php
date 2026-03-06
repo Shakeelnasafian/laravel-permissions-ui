@@ -1,4 +1,4 @@
-﻿@if ($paginator->hasPages())
+@if ($paginator->hasPages())
     <div class="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--pm-stroke)] bg-white/70 px-4 py-3 text-sm">
         <div class="text-[var(--pm-muted)]">
             Showing
