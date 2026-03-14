@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Shakeelnasafian\PermissionManager;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 use Shakeelnasafian\PermissionManager\Observers\PermissionManagerObserver;
 
 class PermissionManagerServiceProvider extends ServiceProvider
@@ -34,9 +32,15 @@ class PermissionManagerServiceProvider extends ServiceProvider
             __DIR__ . '/../database/migrations' => database_path('migrations'),
         ], 'permission-manager-migrations');
 
-        if (config('permission-manager.enable_audit_log', true)) {
-            Role::observe(PermissionManagerObserver::class);
-            Permission::observe(PermissionManagerObserver::class);
+        if (config('permission-manager.enable_audit_log', true) && $this->spatieIsInstalled()) {
+            \Spatie\Permission\Models\Role::observe(PermissionManagerObserver::class);
+            \Spatie\Permission\Models\Permission::observe(PermissionManagerObserver::class);
         }
+    }
+
+    private function spatieIsInstalled(): bool
+    {
+        return class_exists(\Spatie\Permission\Models\Role::class)
+            && class_exists(\Spatie\Permission\Models\Permission::class);
     }
 }
