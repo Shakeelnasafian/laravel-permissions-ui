@@ -1,24 +1,24 @@
 @if ($paginator->hasPages())
-    <div class="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[var(--pm-stroke)] bg-white/70 px-4 py-3 text-sm">
-        <div class="text-[var(--pm-muted)]">
+    <div class="mt-5 flex flex-wrap items-center justify-between gap-3 px-1 text-sm">
+        <p style="color:var(--pm-muted)">
             Showing
-            <span class="font-semibold text-[var(--pm-ink)]">{{ $paginator->firstItem() }}</span>
-            to
-            <span class="font-semibold text-[var(--pm-ink)]">{{ $paginator->lastItem() }}</span>
+            <span class="font-medium" style="color:var(--pm-ink)">{{ $paginator->firstItem() }}</span>
+            &ndash;
+            <span class="font-medium" style="color:var(--pm-ink)">{{ $paginator->lastItem() }}</span>
             of
-            <span class="font-semibold text-[var(--pm-ink)]">{{ $paginator->total() }}</span>
-        </div>
-        <div class="flex items-center gap-2">
+            <span class="font-medium" style="color:var(--pm-ink)">{{ $paginator->total() }}</span>
+        </p>
+        <div class="flex items-center gap-1.5">
             @if ($paginator->onFirstPage())
-                <span class="rounded-full border border-[var(--pm-stroke)] px-3 py-1 text-[var(--pm-muted)]">Previous</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-medium" style="border:1px solid var(--pm-stroke);color:var(--pm-muted);cursor:default">&larr; Prev</span>
             @else
-                <a class="rounded-full border border-[var(--pm-stroke)] px-3 py-1 hover:bg-[var(--pm-surface)]" href="{{ $paginator->previousPageUrl() }}">Previous</a>
+                <a href="{{ $paginator->previousPageUrl() }}" class="px-3 py-1.5 rounded-lg text-xs font-medium" style="border:1px solid var(--pm-stroke);color:var(--pm-ink)">&larr; Prev</a>
             @endif
 
             @if ($paginator->hasMorePages())
-                <a class="rounded-full border border-[var(--pm-stroke)] px-3 py-1 hover:bg-[var(--pm-surface)]" href="{{ $paginator->nextPageUrl() }}">Next</a>
+                <a href="{{ $paginator->nextPageUrl() }}" class="px-3 py-1.5 rounded-lg text-xs font-medium" style="border:1px solid var(--pm-stroke);color:var(--pm-ink)">Next &rarr;</a>
             @else
-                <span class="rounded-full border border-[var(--pm-stroke)] px-3 py-1 text-[var(--pm-muted)]">Next</span>
+                <span class="px-3 py-1.5 rounded-lg text-xs font-medium" style="border:1px solid var(--pm-stroke);color:var(--pm-muted);cursor:default">Next &rarr;</span>
             @endif
         </div>
     </div>
